@@ -20,10 +20,21 @@ public class GetEmployeeDetails {
 		ArrayList<String> empNumList = new ArrayList<String>();
 		ArrayList<String> nameList = new ArrayList<String>();
 		ArrayList<String> birthdayList = new ArrayList<String>();
-//		ArrayList<String> sssList = new ArrayList<String>();
-//		ArrayList<String> philHealthList = new ArrayList<String>();
-//		ArrayList<String> pagIbigList = new ArrayList<String>();
-//		ArrayList<String> tinList = new ArrayList<String>();
+		ArrayList<String> addressList = new ArrayList<String>();
+		ArrayList<String> phoneNumList = new ArrayList<String>();
+		ArrayList<String> sssList = new ArrayList<String>();
+		ArrayList<String> philHealthList = new ArrayList<String>();
+		ArrayList<String> tinList = new ArrayList<String>();
+		ArrayList<String> pagIbigList = new ArrayList<String>();
+		ArrayList<String> statusList = new ArrayList<String>();
+		ArrayList<String> positionList = new ArrayList<String>();
+		ArrayList<String> immediateSupList = new ArrayList<String>();
+		ArrayList<String> basicSalList = new ArrayList<String>();
+		ArrayList<String> riceSubList = new ArrayList<String>();
+		ArrayList<String> phoneAllowanceList = new ArrayList<String>();
+		ArrayList<String> clothingAllowanceList = new ArrayList<String>();
+		ArrayList<String> grossSemiMonthlyList = new ArrayList<String>();
+		ArrayList<String> hourlyRateList = new ArrayList<String>();
 		
 		// if line is not null, split each row element by comma
 		while ((line = br.readLine()) != null) {
@@ -40,18 +51,51 @@ public class GetEmployeeDetails {
 			//place all birthday in one list
 			String birthday = cols[3];
 			birthdayList.add(birthday.trim());
-//			//place all sss number in one list
-//			String sssNum = cols[6];
-//			sssList.add(sssNum.trim());
-//			//place all philHealth number in one list
-//			String philHealthNum = cols[7];
-//			philHealthList.add(philHealthNum.trim());
-//			//place all pagIbig number in one list
-//			String pagIbigNum = cols[9];
-//			pagIbigList.add(pagIbigNum.trim());
-//			//place all tin in one list
-//			String tinNum = cols[8];
-//			tinList.add(tinNum.trim());
+			//place all employee number in one list
+			String address = cols[4];
+			addressList.add(address.trim());
+			//place all employee name in one list
+			String phoneNum = cols[5];
+			phoneNumList.add(phoneNum.trim());
+			//place all sss number in one list
+			String sssNum = cols[6];
+			sssList.add(sssNum.trim());
+			//place all philHealth number in one list
+			String philHealthNum = cols[7];
+			philHealthList.add(philHealthNum.trim());
+			//place all pagIbig number in one list
+			String pagIbigNum = cols[9];
+			pagIbigList.add(pagIbigNum.trim());
+			//place all tin in one list
+			String tinNum = cols[8];
+			tinList.add(tinNum.trim());
+			//place all birthday in one list
+			String status = cols[10];
+			statusList.add(status.trim());
+			//place all sss number in one list
+			String position = cols[11];
+			positionList.add(position.trim());
+			//place all philHealth number in one list
+			String immediateSup = cols[12];
+			immediateSupList.add(immediateSup.trim());
+			//place all pagIbig number in one list
+			String basicSal = cols[13];
+			basicSalList.add(basicSal.trim());
+			//place all tin in one list
+			String riceSub = cols[14];
+			riceSubList.add(riceSub.trim());
+			//place all sss number in one list
+			String phoneAllowance = cols[15];
+			phoneAllowanceList.add(phoneAllowance.trim());
+			//place all philHealth number in one list
+			String clothingAllowance = cols[16];
+			clothingAllowanceList.add(clothingAllowance.trim());
+			//place all pagIbig number in one list
+			String grossSemiMonthly = cols[17];
+			grossSemiMonthlyList.add(grossSemiMonthly.trim());
+			//place all tin in one list
+			String hourlyRate = cols[18];
+			hourlyRateList.add(hourlyRate.trim());
 			
 			
 		}
@@ -72,7 +116,22 @@ public class GetEmployeeDetails {
 		System.out.println();
 		System.out.println("Employee Number: " + empNumList.get(empNumIndex));
 		System.out.println("Employee Name: " + nameList.get(empNumIndex));
-		System.out.println("Employee Birthday: " + birthdayList.get(empNumIndex));
+		System.out.println("Birthday: " + birthdayList.get(empNumIndex));
+		System.out.println("Address: " + addressList.get(empNumIndex));
+		System.out.println("Phone#: " + phoneNumList.get(empNumIndex));
+		System.out.println("SSS: " + sssList.get(empNumIndex));
+		System.out.println("PhilHealth: " + philHealthList.get(empNumIndex));
+		System.out.println("PagIbig: " + pagIbigList.get(empNumIndex));
+		System.out.println("TIN: " + tinList.get(empNumIndex));
+		System.out.println("Status: " + statusList.get(empNumIndex));
+		System.out.println("Position: " + positionList.get(empNumIndex));
+		System.out.println("Immediate Supervisor: " + immediateSupList.get(empNumIndex));
+		System.out.println("Basic Salary: " + basicSalList.get(empNumIndex));
+		System.out.println("Rice Subsidy: " + riceSubList.get(empNumIndex));
+		System.out.println("Phone Allowance: " + phoneAllowanceList.get(empNumIndex));
+		System.out.println("Clothing Allowance: " + clothingAllowanceList.get(empNumIndex));
+		System.out.println("Gross Semi-Monthly Rate: " + grossSemiMonthlyList.get(empNumIndex));
+		System.out.println("Hourly Rate: " + hourlyRateList.get(empNumIndex));
 		System.out.println();
 		System.out.println(". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .");
 		System.out.println(".                                                                 .");
