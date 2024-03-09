@@ -183,8 +183,25 @@ public class ComputeMonthlySalary {
 			System.out.println("Withholding Tax:               ("+formatter.format(withholdingTax)+")");
 			System.out.println("                              -----------");
 			System.out.println("Net Salary:                    "+formatter.format(netSalary));
+			System.out.println();
+			
+			double riceSubsidy = employeeDetails.getRiceSubsidy(inputEmpId);
+			double phoneAllowance = employeeDetails.getPhoneAllowance(inputEmpId);
+			double clothingAllowance = employeeDetails.getClothingAllowance(inputEmpId);
+			double totalBenefits = riceSubsidy + phoneAllowance + clothingAllowance;
+			
+			System.out.println("Benefits:");
+			System.out.println("Rice Subsidy:       "+formatter.format(riceSubsidy));
+			System.out.println("Phone Allowance:      "+formatter.format(phoneAllowance));
+			System.out.println("Clothing Allowance:   "+formatter.format(clothingAllowance)+"   "+formatter.format(totalBenefits));
+			
+			double takeHomePay = netSalary + totalBenefits;
+
+			System.out.println("                              -----------");
+			System.out.println("Take Home Pay:                 "+formatter.format(takeHomePay));
 			System.out.println("                              ===========");
 			System.out.println();
+			
 			System.out.println("===============================================");
 			
 			// check original raw data from camu. check dates in attendance record sheet
