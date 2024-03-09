@@ -17,7 +17,6 @@ public class CountWeeklyHours {
 		FileReader fr = new FileReader ("./data/AttendanceRecordv3.csv");
 		BufferedReader br = new BufferedReader (fr);
 		ComputeMonthlySalary monthlySalary = new ComputeMonthlySalary();
-		GetSalaryRates salaryRate = new GetSalaryRates();
 		GetCalendarDates calendarDates = new GetCalendarDates();
 		GetEmployeeDetails employeeDetails = new GetEmployeeDetails();
 		CountMonthlyHours monthlyHours = new CountMonthlyHours();
@@ -37,8 +36,7 @@ public class CountWeeklyHours {
 		while ((line = br.readLine()) != null) {
 			//comma as separators
 			String[] cols = line.split(",");
-//			System.out.println("Employee Number: " + cols[0]+" ; Date: "+cols[1]+" ; Time In: "+cols[2]+" ; Time Out: "+cols[3]);
-
+			
 			//place all employee number in one list
 			String empNum = cols[0];
 			empNumList.add(empNum.trim());
@@ -133,11 +131,10 @@ public class CountWeeklyHours {
 		minutes = (totalHours / (1000*60)) % 60;
 		hours = (totalHours / (1000*60*60));
 		System.out.println("Total Weekly Hours:      "+hours+"Hrs. "+minutes+"mins. ");
-		String hourlyRate = salaryRate.getHourlyRate(inputEmpId);
+		Double hourlyRate = employeeDetails.getHourlyRate(inputEmpId);
 		System.out.println("Hourly Rate:             "+hourlyRate);
 		
-		double hourlyRateDouble = Double.parseDouble(hourlyRate);
-		double weeklySalary = (hours + (minutes/60))*hourlyRateDouble;
+		double weeklySalary = (hours + (minutes/60))*hourlyRate;
 		DecimalFormat formatter = new DecimalFormat("#,###.00");
 		System.out.println("                       -------------");
 		System.out.println("Total weekly salary:     "+formatter.format(weeklySalary));
