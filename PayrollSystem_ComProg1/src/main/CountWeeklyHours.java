@@ -58,26 +58,6 @@ public class CountWeeklyHours {
 		}
 		
 		Scanner scanner = new Scanner (System.in);
-//		System.out.print("Enter EmpID: ");
-//		String inputEmpId = scanner.nextLine();
-		///////////////////////////////////////////////
-//		System.out.println();
-//		System.out.println(". . . . . . . . . . . . . . . . . . .");
-//		System.out.println();
-//		System.out.println("Options:");
-//		System.out.println("1. Week starting Sept. 19, 2022");
-//		System.out.println("2. Week starting Sept. 26, 2022");
-//		System.out.println();
-//		System.out.print("Enter the number of your choice: ");
-//		String inputWeekStart = scanner.nextLine();
-//		if (inputWeekStart.equals("1") == true) {
-//			String [] weekDays = {
-//					"19/09/2022",
-//					"20/09/2022",
-//					"21/09/2022",
-//					"22/09/2022",
-//					"23/09/2022"};
-		/////////////////////////////////////////////
 		System.out.println();
 		System.out.println(". . . . . . . . . . . . . . . . . . .");
 		System.out.println();
@@ -113,12 +93,18 @@ public class CountWeeklyHours {
 						}
 						else if (timeInChoice.getTime() > 900000 ) {
 							dailyHoursRendered = (timeOutChoice.getTime() - timeInChoice.getTime());
+							if (dailyHoursRendered > 18000000) {
+								dailyHoursRendered -= 3600000;
+							} else continue;
 							totalHours += dailyHoursRendered;
 							if ((dailyHoursRendered / (1000*60)) % 60 > 0) {
 								remarks = "- Late    |";
 							} else remarks = " - Late    |";
 						} else {
 							dailyHoursRendered = (timeOutChoice.getTime() - timeInDefault.getTime());
+							if (dailyHoursRendered > 18000000) {
+								dailyHoursRendered -= 3600000;
+							} else continue;
 							totalHours += dailyHoursRendered;
 							remarks = " - OK      |";
 						}
@@ -131,19 +117,8 @@ public class CountWeeklyHours {
 						System.out.println("|   "+empNumList.get(i) + "           "+dateList.get(i)+"     "+timeInChoiceString+"       "+timeOutChoiceString+"        "+hoursRendered+"Hrs. "+minutesRendered+"mins.       "+remarks);
 						
 						
-					} else {
-	//					System.out.println();
-	//					System.out.println(inputEmpId);
-	//					System.out.println(inputEmpId.getClass());
-	//					System.out.println(empNumList.get(i));
-	//					System.out.println(empNumList.get(i).getClass());
-	//					System.out.println(weekDays[z]);
-	//					System.out.println(weekDays[z].getClass());
-	//					System.out.println(dateList.get(i));
-	//					System.out.println(dateList.get(i).getClass());
-	//					System.out.println("Else block");
-						continue;
-					}
+					} else continue;
+					
 				
 			} 
 			z++;
