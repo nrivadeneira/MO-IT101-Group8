@@ -4,34 +4,37 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GetEmployeeDetails {
-	public  void getEmployeeDetails(String inputEmpId) throws IOException, ParseException {
+	
+	public String [] empDetailsArray;
+	
+	public void employeeDetails(String inputEmpId) throws IOException {
 		FileReader fr = new FileReader ("./data/EmployeeDetailsv3.csv");
 		BufferedReader br = new BufferedReader (fr);
+		String line;
+		
+		// if line is not null, split each row element by comma
+		while (((line = br.readLine()) != null) || (empDetailsArray == null)){
+			String[] cols = line.split(",");
+			
+			if (inputEmpId.equals(cols[0])){
+				empDetailsArray = cols;
+			} else continue;
+		}
+		br.close();
+	}
+	
+	public void getEmployeeDetails(String inputEmpId) throws IOException, ParseException {
+		employeeDetails(inputEmpId);
+
 		CountWeeklyHours weeklyHours = new CountWeeklyHours();
 		ComputeMonthlySalary monthlySalary = new ComputeMonthlySalary();
 		CountMonthlyHours monthlyHours = new CountMonthlyHours();
 		
-		String line;
-		String [] empDetails = null;
-		
-		// if line is not null, split each row element by comma
-		while (((line = br.readLine()) != null) || (empDetails == null)){
-			//comma as separators
-			String[] cols = line.split(",");
-			//System.out.println("Employee Number: " + cols[0]+" ; "+"Employee Name: "+cols[1]+", "+cols[2]+" ; "+"Birthday: "+cols[3]);
-			
-			if (inputEmpId.equals(cols[0])){
-				empDetails = cols;
-			} else continue;
-			
-		}
+		String [] empDetails = empDetailsArray;
 	
-		
-		System.out.println();
 		System.out.println();
 		System.out.println("------------------------------------------------------");
 		System.out.println();
@@ -85,10 +88,36 @@ public class GetEmployeeDetails {
 			System.out.println("Thank you for using MotorPh Portal!");
 		}
 		
-
 		scanner.close();
-		br.close();
 		
+	}
+	
+	public double getHourlyRate(String inputEmpId) throws IOException {
+		employeeDetails(inputEmpId);
+		String [] empDetails = empDetailsArray;
+		double hourlyRate = Double.parseDouble(empDetails[18]);
+		return hourlyRate;
+	}
+	
+	public double getRiceSubsidy(String inputEmpId) throws IOException {
+		employeeDetails(inputEmpId);
+		String [] empDetails = empDetailsArray;
+		double riceSubsidy = Double.parseDouble(empDetails[14]);
+		return riceSubsidy;
+	}
+	
+	public double getPhoneAllowance(String inputEmpId) throws IOException {
+		employeeDetails(inputEmpId);
+		String [] empDetails = empDetailsArray;
+		double phoneAllowance = Double.parseDouble(empDetails[15]);
+		return phoneAllowance;
+	}
+	
+	public double getClothingAllowance(String inputEmpId) throws IOException {
+		employeeDetails(inputEmpId);
+		String [] empDetails = empDetailsArray;
+		double clothingAllowance = Double.parseDouble(empDetails[16]);
+		return clothingAllowance;
 	}
 	
 }
