@@ -16,7 +16,8 @@ public class GetEmployeeDetails {
 		String line;
 		
 		// if line is not null, split each row element by comma
-		while (((line = br.readLine()) != null) || (empDetailsArray == null)){
+		while (((line = br.readLine()) != null) && (empDetailsArray == null)){  
+			//&& statement was added so the while loop will stop when it reaches the empId
 			String[] cols = line.split(",");
 			
 			if (inputEmpId.equals(cols[0])){
