@@ -13,7 +13,6 @@ public class CheckInputEmpId {
 	
 		FileReader fr = new FileReader ("./data/EmployeeDetails.csv");
 		BufferedReader br = new BufferedReader (fr);
-		CountWeeklyHours weeklyHours = new CountWeeklyHours();
 		String line;
 	
 		//instantiate lists
