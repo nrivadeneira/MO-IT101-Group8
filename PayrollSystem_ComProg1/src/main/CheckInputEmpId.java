@@ -23,8 +23,7 @@ public class CheckInputEmpId {
 		while ((line = br.readLine()) != null) {
 			//comma as separators
 			String[] cols = line.split(",");
-			//System.out.println("Employee Number: " + cols[0]+" ; "+"Employee Name: "+cols[1]+", "+cols[2]+" ; "+"Birthday: "+cols[3]);
-	
+			
 			//place all employee number in one list
 			String empNum = cols[0];
 			empNumList.add(empNum.trim());
@@ -32,8 +31,6 @@ public class CheckInputEmpId {
 		}
 		
 		String userInput = inputEmpId;
-		userInput = userInput.replaceAll("[^\\d.]", "0");
-		int inputInt = Integer.parseInt(userInput);
 		
 		// firstEmpNum and lastEmpNum is created only for the sysout "Choose from.." part
 		String firstEmpNum = empNumList.get(1);
@@ -43,24 +40,10 @@ public class CheckInputEmpId {
 
 		Scanner scanner = new Scanner (System.in);
 		
-		if (userInput.length() != 5) {
-			while (userInput.length() != 5) {
-				System.out.println();
-				System.out.print("Please enter a five digit Employee number\n(Choose from: " + firstEmpNum+"-"+ lastEmpNum+"): ");
-				userInput = scanner.nextLine();
-				userInput = userInput.replaceAll("[^\\d.]", "0");
-				inputInt = Integer.parseInt(userInput);
-			} 
-		} 
 		
-		if (userInput.length() == 5) {
-			while ((inputInt < firstEmpNumInt) || inputInt > lastEmpNumInt) {
-				System.out.println();
-				System.out.print("Input is not a valid Employee Number\n(Choose from: " + firstEmpNum+"-"+ lastEmpNum+"): ");
-				userInput = scanner.nextLine();
-				userInput = userInput.replaceAll("[^\\d.]", "0");
-				inputInt = Integer.parseInt(userInput);
-			}
+		while (empNumList.indexOf(userInput) < 0) {
+			System.out.print("\nInput is not a valid Employee Number\n(Choose from: " + firstEmpNum+"-"+ lastEmpNum+"): ");
+			userInput = scanner.nextLine();
 		}
 		
 		return userInput;
