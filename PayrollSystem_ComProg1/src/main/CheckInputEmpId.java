@@ -33,9 +33,7 @@ public class CheckInputEmpId {
 		
 		// firstEmpNum and lastEmpNum is created only for the sysout "Choose from.." part
 		String firstEmpNum = empNumList.get(1);
-		int firstEmpNumInt = Integer.parseInt(firstEmpNum);
 		String lastEmpNum = empNumList.get(empNumList.size()-1);
-		int lastEmpNumInt = Integer.parseInt(lastEmpNum);
 
 		Scanner scanner = new Scanner (System.in);
 		

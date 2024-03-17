@@ -25,7 +25,7 @@ public class Main {
 		System.out.println("2. Get Weekly Hours & Weekly Salary");
 		System.out.println("3. Get Monthly Hours");
 		System.out.println("4. Compute Net Monthly Salary");
-		System.out.println("5. None");
+		System.out.println("5. Exit");
 		System.out.println();
 		System.out.print("Please enter your choice: ");
 		String userInput = scanner.nextLine();

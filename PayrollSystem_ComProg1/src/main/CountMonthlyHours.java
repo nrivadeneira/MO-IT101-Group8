@@ -64,6 +64,11 @@ public class CountMonthlyHours {
 		System.out.println();
 		System.out.print("Please enter the date you \nwant to be included (ex. 25/12/2022): ");
 		String inputDate = scanner.nextLine();
+		//validate input date versus available dates from database
+		CheckInputDate checkInputDate = new CheckInputDate();
+		String checkedInputDate = checkInputDate.checkedInputDate(inputDate);
+		inputDate = checkedInputDate;
+		
 		ArrayList<String> monthDays = calendarDates.getDatesOfTheMonth(inputDate);
 		
 			System.out.println();
@@ -164,8 +169,8 @@ public class CountMonthlyHours {
 		System.out.println(".  1. View Basic Details                                          .");
 		System.out.println(".  2. Compute for this employee's Weekly Hours & Weekly Salary    .");
 		System.out.println(".  3. Compute Net Monthly Salary                                  .");
-		System.out.println(".  4. Go back to Main menu                                        .");
-		System.out.println(".  5. None                                                        .");
+		System.out.println(".  4. Go back to Main menu to check for other employees           .");
+		System.out.println(".  5. Exit                                                        .");
 		System.out.println(".                                                                 .");
 		System.out.println(". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .");
 		System.out.println();

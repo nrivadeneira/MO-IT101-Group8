@@ -67,8 +67,8 @@ public class GetEmployeeDetails {
 		System.out.println(".  1. Compute for this employee's Weekly Hours & Weekly Salary    .");
 		System.out.println(".  2. Compute for this employee's Monthly Hours                   .");
 		System.out.println(".  3. Compute Net Monthly Salary                                  .");
-		System.out.println(".  4. Go back to Main menu                                        .");
-		System.out.println(".  5. None                                                        .");
+		System.out.println(".  4. Go back to Main menu to check for other employees           .");
+		System.out.println(".  5. Exit                                                        .");
 		System.out.println(".                                                                 .");
 		System.out.println(". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .");
 		System.out.println();
