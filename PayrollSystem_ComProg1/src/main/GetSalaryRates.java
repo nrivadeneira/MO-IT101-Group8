@@ -8,7 +8,10 @@ import java.util.ArrayList;
 public class GetSalaryRates {
 	
 	public String getHourlyRate(String inputEmpId) throws NumberFormatException, IOException {
-		FileReader fr = new FileReader ("./data/EmployeeDetailsv3.csv");
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/EmployeeDetailsv3.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/EmployeeDetailsv3.csv");
 		BufferedReader br = new BufferedReader (fr);
 		String line;
 	

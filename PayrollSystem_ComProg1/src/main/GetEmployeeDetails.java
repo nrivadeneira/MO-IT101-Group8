@@ -11,7 +11,10 @@ public class GetEmployeeDetails {
 	public String [] empDetailsArray;
 	
 	public void employeeDetails(String inputEmpId) throws IOException {
-		FileReader fr = new FileReader ("./data/EmployeeDetailsv3.csv");
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/EmployeeDetailsv3.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/EmployeeDetailsv3.csv");
 		BufferedReader br = new BufferedReader (fr);
 		String line;
 		

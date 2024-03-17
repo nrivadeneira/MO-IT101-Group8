@@ -10,8 +10,10 @@ import java.util.Scanner;
 public class CheckInputEmpId {
 	
 	public String checkInputEmpId (String inputEmpId) throws IOException {
-	
-		FileReader fr = new FileReader ("./data/EmployeeDetails.csv");
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/EmployeeDetails.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/EmployeeDetails.csv");
 		BufferedReader br = new BufferedReader (fr);
 		String line;
 	

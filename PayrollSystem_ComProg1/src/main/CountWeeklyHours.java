@@ -14,7 +14,10 @@ import java.util.Scanner;
 public class CountWeeklyHours {
 
 	public void countWeeklyHours(String inputEmpId) throws ParseException, IOException {
-		FileReader fr = new FileReader ("./data/AttendanceRecordv3.csv");
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/AttendanceRecordv3.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/AttendanceRecordv3.csv");
 		BufferedReader br = new BufferedReader (fr);
 		ComputeMonthlySalary monthlySalary = new ComputeMonthlySalary();
 		GetCalendarDates calendarDates = new GetCalendarDates();
@@ -59,7 +62,7 @@ public class CountWeeklyHours {
 		System.out.println();
 		System.out.println(". . . . . . . . . . . . . . . . . . .");
 		System.out.println();
-		System.out.print("Please enter the date you \nwant to be included (ex. 25/12/2022): ");
+		System.out.print("Please enter the date you \nwant to be included (ex. 26/12/2022): ");
 		String inputDate = scanner.nextLine();
 		//validate input date versus available dates from database
 		CheckInputDate checkInputDate = new CheckInputDate();

@@ -10,7 +10,11 @@ import java.util.ArrayList;
 public class GovtDeductions {
 	
 	public static double sss(double monthlyGrossSalary) throws IOException {
-		FileReader fr = new FileReader ("./data/SSS Contribution.csv");
+
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/SSS Contribution.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/SSS Contribution.csv");
 		BufferedReader br = new BufferedReader (fr);
 		String line;
 		

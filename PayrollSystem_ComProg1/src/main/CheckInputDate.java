@@ -9,7 +9,10 @@ import java.util.Scanner;
 public class CheckInputDate {
 	
 	public String checkedInputDate (String inputDate) throws IOException {
-		FileReader fr = new FileReader ("./data/AttendanceRecordv3.csv");
+		// identify the file directory
+		String file = System.getProperty("user.dir") + "/data/AttendanceRecordv3.csv";
+		FileReader fr = new FileReader (file);
+//		FileReader fr = new FileReader ("./data/AttendanceRecordv3.csv");
 		BufferedReader br = new BufferedReader (fr);
 		Scanner scanner = new Scanner (System.in);
 		String line;
